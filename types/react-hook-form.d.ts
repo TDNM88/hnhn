@@ -147,5 +147,14 @@ declare module 'react-hook-form' {
     unregister: any;
     watch: any;
     setError: any;
+    getFieldState: <TFieldName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>>(
+      name: TFieldName,
+      formState?: UseFormStateReturn<TFieldValues>
+    ) => {
+      invalid: boolean;
+      isDirty: boolean;
+      isTouched: boolean;
+      error?: FieldError;
+    };
   }
 }
