@@ -16,7 +16,7 @@ export async function withRateLimit(
     
     if (!success) {
       const retryAfter = Math.ceil((reset - Date.now()) / 1000);
-      res.setHeader('Retry-After', retryAfter);
+      res.setHeader('Retry-After', retryAfter.toString());
       res.setHeader('X-RateLimit-Limit', limit.toString());
       res.setHeader('X-RateLimit-Remaining', remaining.toString());
       res.setHeader('X-RateLimit-Reset', reset.toString());
